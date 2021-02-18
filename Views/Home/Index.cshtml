@@ -1,0 +1,21 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+@model IQueryable<Project> 
+
+<div class="text-center">
+    <h1 class="display-4">Welcome to my fake Amazon</h1>
+</div>
+<!--populating the actual database info-->
+@foreach (var x in Model)
+{   /*Here's some more bootstrap styline of my div and other things'*/
+    <div class="text-center text-nowrap text-justify border-top ">
+        <h3 class="glyphicon glyphicon-book">@x.Title</h3>
+        <p>Author: @x.AuthorFirst  @x.AuthorMiddle   @x.AuthorLast</p>
+        <p>Publisher: @x.Publisher</p>
+        <p>Classification/Category: @x.Classification, @x.Category</p>
+        <p><i>ISBN: @x.ISBN</i></p>
+        <p><i>Price: $@x.Price</i></p>
+    </div>
+}
