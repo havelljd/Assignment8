@@ -18,29 +18,27 @@
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                @*<div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
-                    </ul>
-                </div>*@
             </div>
         </nav>
     </header>
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
+    @*<div class="container">
+            <main role="main" class="pb-3">
+            </main>
+        </div>*@
+
+
+    @*here's the beutify bootstrap from the videos'*@
+
+    <div class="col-3"><h1 class="col-3">Fake Amazon Books</h1></div>
+    <div class="col-4">
+        @RenderBody()
     </div>
+
 
     <footer class="border-success footer text-info align-text-top">
         @*<div class="container">
-            &copy; 2021 - FakeAmazon - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-        </div>*@
+                &copy; 2021 - FakeAmazon - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            </div>*@
         <div class="container-fluid">
             THIS IS MY FOOTER, RELENTLESS
         </div>
