@@ -24,13 +24,14 @@ namespace FakeAmazon.Controllers
             _repository = repository;
         }
 
-        public IActionResult Index(int page = 1)
+        public IActionResult Index(string category, int page = 1)
         {
 
             return View(
                 new ProjectListViewModel
                 {
                     Projects = _repository.Projects
+                    .Where(p => category == null || p.Category == category)
                     .OrderBy(p => p.BookId)
                     .Skip((page - 1) * ItemsPerPage)
                     .Take(ItemsPerPage),
@@ -39,10 +40,11 @@ namespace FakeAmazon.Controllers
                     {
                         CurrentPage = page,
                         ItemsPerPage = ItemsPerPage,
-                        TotalNumItems = _repository.Projects.Count()
-                    }
+                        TotalNumItems = category == null ? _repository.Projects.Count() : _repository.Projects.Where(x => x.Category == category).Count()
+                    },
+                    CurrentCategory = category
                 }
-                );
+                ) ;
         }
 
         public IActionResult Privacy()

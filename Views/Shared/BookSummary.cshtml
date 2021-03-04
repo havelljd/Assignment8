@@ -1,0 +1,14 @@
+﻿@model FakeAmazon.Models.Project
+
+
+
+@*/*Here's some more bootstrap styline of my div and other things'*/*@
+<div class="card card-outline-primary m-1 p-1 align-content-center">
+    <h1 class="badge badge-primary p-4 display-2 figure-caption" style="float:right;">@Model.Title</h1>
+    <p>Author: @Model.AuthorFirst  @Model.AuthorMiddle   @Model.AuthorLast</p>
+    <p>Publisher: @Model.Publisher</p>
+    <p>Classification/Category: @Model.Classification, @Model.Category</p>
+    <p><i>ISBN: @Model.ISBN</i></p>
+    <p class="font-weight-bold"><i>Price: $@Model.Price</i></p>
+    <pg><i>@Model.Pages pages </i></pg>
+</div>

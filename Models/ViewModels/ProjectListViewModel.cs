@@ -10,5 +10,8 @@ namespace FakeAmazon.Models.ViewModels
         public IEnumerable<Project> Projects { get; set; }
 
         public PagingInfoClass PagingInfo { get; set; }
+
+        //additional attribute to help get the category I want
+        public string CurrentCategory { get; set; }
     }
 }

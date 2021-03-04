@@ -6,16 +6,11 @@
 
 <!--populating the actual index page with database info info-->
 @foreach (var x in Model.Projects)
-{   /*Here's some more bootstrap styline of my div and other things'*/
-    <div class="card card-outline-primary m-1 p-1 align-content-center">
-        <h1 class="badge badge-primary p-4 display-2 figure-caption" style="float:right;" >@x.Title</h1>
-        <p>Author: @x.AuthorFirst  @x.AuthorMiddle   @x.AuthorLast</p>
-        <p>Publisher: @x.Publisher</p>
-        <p>Classification/Category: @x.Classification, @x.Category</p>
-        <p><i>ISBN: @x.ISBN</i></p>
-        <p class="font-weight-bold"><i>Price: $@x.Price</i></p>
-        <pg><i>@x.Pages pages </i></pg>
-    </div>
+{   
+    <partial name="BookSummary" model ="x" />
 }
 
-<div page-model="@Model.PagingInfo" page-action="Index" page-classes-enabled ="true" page-class =" btn" page-class-normal="btn-outline-dark" page-class-selected="btn-primary" class="btn-group pull-right m-1"></div>
+<div page-model="@Model.PagingInfo" page-action="Index" page-classes-enabled ="true" page-class =" btn"
+     page-class-normal="btn-outline-dark" 
+     page-class-selected="btn-primary" page-url-category="@Model.CurrentCategory" 
+     class="btn-group pull-right m-1"></div>

@@ -55,8 +55,18 @@ namespace FakeAmazon
 
             app.UseAuthorization();
 
+            //Here is my user friendly url links! The category, the page number, or a combination of the two!
+
             app.UseEndpoints(endpoints =>
             {
+                endpoints.MapControllerRoute("catpage", "{category}/{page:int}", new { Controller = "Home", action = "Index" });
+
+                endpoints.MapControllerRoute("page", "{page:int}", new { Controller = "Home", action = "Index" });
+
+                endpoints.MapControllerRoute("category", "{category}", new { Controller = "Home", action = "Index", page = 1 });
+
+
+
                 endpoints.MapControllerRoute(
                    "pagination",
                    "P{page}",
