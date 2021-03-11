@@ -1,0 +1,18 @@
+﻿@model FakeAmazon.Models.Cart
+<link href="~/lib/bootstrap/dist/css/all.min.css" rel="stylesheet" />
+<div>
+    @if (Model.Lines.Count() > 0)
+    {
+        <small class="navbar-text">
+            <b>Your cart:</b>
+            @Model.Lines.Sum(x => x.Price) item(s)
+            @Model.ComputeTotalSum().ToString("c")
+        </small>
+    }
+    <a class="btn btn-sm btn-secondary navbar-btn" asp-page="/AddCart"
+       asp-route-returnurl="@ViewContext.HttpContext.Request.PathAndQuery()">
+        <i class="fa fa-shopping-cart"></i>
+    </a>
+</div>
+
+@*No matter what I did, I could not get a shopping cart up here...I'm not sure what is wrong with the library, but I also kind of like the square thing.'*@

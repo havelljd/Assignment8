@@ -50,7 +50,7 @@ namespace FakeAmazon.Infrastructure
             {
                 TagBuilder tag = new TagBuilder("a");
 
-                PageUrlValues["page"] = i;
+                PageUrlValues["pagenum"] = i;
 
                 //here I pass in the page url values instead of i!
 

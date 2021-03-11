@@ -24,7 +24,7 @@ namespace FakeAmazon.Controllers
             _repository = repository;
         }
 
-        public IActionResult Index(string category, int page = 1)
+        public IActionResult Index(string category, int pagenum = 1)
         {
 
             return View(
@@ -33,12 +33,12 @@ namespace FakeAmazon.Controllers
                     Projects = _repository.Projects
                     .Where(p => category == null || p.Category == category)
                     .OrderBy(p => p.BookId)
-                    .Skip((page - 1) * ItemsPerPage)
+                    .Skip((pagenum - 1) * ItemsPerPage)
                     .Take(ItemsPerPage),
 
                     PagingInfo = new PagingInfoClass
                     {
-                        CurrentPage = page,
+                        CurrentPage = pagenum,
                         ItemsPerPage = ItemsPerPage,
                         TotalNumItems = category == null ? _repository.Projects.Count() : _repository.Projects.Where(x => x.Category == category).Count()
                     },

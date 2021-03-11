@@ -9,5 +9,6 @@
 @foreach (string category in Model)
 {
     <a class="btn btn-block @(category == ViewBag.SelectedCategory ? "btn-primary" : "btn-outline-secondary")"
-       asp-action="Index" asp-controller="Home" asp-route-category ="@category" asp-route-page="1">@category</a>
+       asp-action="Index" asp-controller="Home" asp-route-category ="@category" asp-route-pagenum="1">@category</a>
 }
+@*updated page to say pagenum across all lniks to fix them :)*@
