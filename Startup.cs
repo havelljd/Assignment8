@@ -31,7 +31,7 @@ namespace FakeAmazon
             //passing the connection string into the configuration, and the database context
             services.AddDbContext<FakeAmazonDbContext>(options =>
            {
-               options.UseSqlServer(Configuration["ConnectionStrings:FakeAmazonConnection"]);
+               options.UseSqlite(Configuration["ConnectionStrings:FakeAmazonConnection"]);
            });
 
             services.AddScoped<IAmazonRepository, EFAmazonRepository>();
